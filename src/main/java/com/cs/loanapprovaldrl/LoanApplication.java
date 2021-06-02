@@ -6,12 +6,45 @@ package com.cs.loanapprovaldrl;
 
 public class LoanApplication implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    public LoanApplication() {
-    }
+	@org.kie.api.definition.type.Label(value = "creditScore")
+	private java.lang.Integer creditScore;
+	private java.lang.Float dti;
+	private java.lang.String loanApproval;
 
+	public LoanApplication() {
+	}
 
+	public java.lang.Integer getCreditScore() {
+		return this.creditScore;
+	}
 
+	public void setCreditScore(java.lang.Integer creditScore) {
+		this.creditScore = creditScore;
+	}
+
+	public java.lang.Float getDti() {
+		return this.dti;
+	}
+
+	public void setDti(java.lang.Float dti) {
+		this.dti = dti;
+	}
+
+	public java.lang.String getLoanApproval() {
+		return this.loanApproval;
+	}
+
+	public void setLoanApproval(java.lang.String loanApproval) {
+		this.loanApproval = loanApproval;
+	}
+
+	public LoanApplication(java.lang.Integer creditScore, java.lang.Float dti,
+			java.lang.String loanApproval) {
+		this.creditScore = creditScore;
+		this.dti = dti;
+		this.loanApproval = loanApproval;
+	}
 
 }
