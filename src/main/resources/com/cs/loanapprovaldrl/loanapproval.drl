@@ -1,2 +1,38 @@
 package com.cs.loanapprovaldrl;
 
+import com.cs.loanapprovaldrl.LoanApplication;
+
+rule "Declined-LessCreditScore"
+  when
+    application : LoanApplication(creditScore < 600)
+  then
+    application.setLoanApproval( "Declined" );
+end
+
+rule "Declined-UnexpectedDTI "
+  when
+    application : LoanApplication(creditScore >= 600, creditScore <= 660, dti >= 0.35)
+  then
+    application.setLoanApproval( "Declined" );
+end
+
+rule "Approved-ReasonableDTI"
+  when
+    application : LoanApplication(creditScore >= 600, creditScore <= 660, dti < 0.35)
+  then
+    application.setLoanApproval( "Approved" );
+end
+
+rule "Declined-HighCreditScoreHighDTI"
+  when
+    application : LoanApplication( creditScore > 660, dti >= 0.38)
+  then
+    application.setLoanApproval( "Declined" );
+end
+
+rule "Approved-HighCreditScoreResonableDTI"
+  when
+    application : LoanApplication( creditScore > 660, dti < 0.38)
+  then
+    application.setLoanApproval( "Approved" );
+end
