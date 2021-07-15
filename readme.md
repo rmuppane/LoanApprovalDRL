@@ -9,8 +9,9 @@ RHPAM: 7.10.1
 
 DRL
 ===
-![DMN](images/drl.png)
+![DRL](images/test_scenarios.png)
+
 
 Test Scenarios
 ==============
-![BPMN Process](images/test_scenarios.png)
+![Scenarios](images/drl.png)
